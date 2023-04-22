@@ -128,10 +128,12 @@ router.get("/winners-multiple/:year", (req, res) => {
           const existingWinner = multipleWinners.find((multipleWinner) => {
             return multipleWinner.name === winner.entity;
           });
+          const onlyAward = awards.map((item) => (item.category));
+          console.log(onlyAward)
           if (!existingWinner) {
             multipleWinners.push({
               name: winner.entity,
-              awards
+              awards: onlyAward
             });
           }
         }
